@@ -8,7 +8,7 @@ import struct, zlib, os, zipfile
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BP_DIR = os.path.join(BASE_DIR, 'BP')
 RP_DIR = os.path.join(BASE_DIR, 'RP')
-OUTPUT = os.path.join(BASE_DIR, 'FFA_Classes_v4.mcaddon')
+OUTPUT = os.path.join(BASE_DIR, 'FFA_Classes_v5.mcaddon')
 
 def create_pack_icon(filepath, color):
     """Create a simple 64x64 colored pack icon."""

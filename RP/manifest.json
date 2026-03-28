@@ -1,17 +1,17 @@
 {
     "format_version": 2,
     "header": {
-        "name": "§b⚔ FFA Class Wars v4 Resources ⚔",
-        "description": "Textures and UI for FFA Class Wars v4",
-        "uuid": "b8b6807f-e160-4c81-b546-0993630dfcfd",
-        "version": [4, 0, 0],
+        "name": "§b⚔ FFA Class Wars v5 Resources ⚔",
+        "description": "Textures and UI for FFA Class Wars v5",
+        "uuid": "61b10986-1343-4c02-b89a-c16344a23bbd",
+        "version": [5, 0, 0],
         "min_engine_version": [1, 21, 0]
     },
     "modules": [
         {
             "type": "resources",
-            "uuid": "bb1b8230-76b6-4071-89a4-735a7f00d916",
-            "version": [4, 0, 0]
+            "uuid": "f6ee4f13-ff39-4953-93ac-208ffc40d7fb",
+            "version": [5, 0, 0]
         }
     ]
 }
