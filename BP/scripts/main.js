@@ -464,6 +464,21 @@ function isWandOnCooldown(player, wandType) {
 function castBasicWand(player) {
     if (isWandOnCooldown(player, "basic")) return;
     try {
+        const hd = player.getHeadLocation();
+        const vd = player.getViewDirection();
+
+        // Spawn a visible projectile (arrow) in the look direction
+        const spawnX = hd.x + vd.x * 1.5;
+        const spawnY = hd.y + vd.y * 1.5;
+        const spawnZ = hd.z + vd.z * 1.5;
+
+        // Shoot an arrow as the visible projectile
+        player.runCommandAsync(
+            `summon arrow ${spawnX} ${spawnY} ${spawnZ}`
+        );
+
+        // Apply velocity-like behavior by teleporting arrow forward in ticks
+        // and do damage via hitscan as backup
         const entities = player.getEntitiesFromViewDirection({ maxDistance: 50 });
         if (entities && entities.length > 0) {
             const target = entities[0].entity;
@@ -472,12 +487,19 @@ function castBasicWand(player) {
                 player.sendMessage("§5✦ §7Magic bolt hits!");
             }
         }
+
+        // Particle trail
+        for (let i = 1; i <= 5; i++) {
+            const px = hd.x + vd.x * i * 3;
+            const py = hd.y + vd.y * i * 3;
+            const pz = hd.z + vd.z * i * 3;
+            player.dimension.runCommand(
+                `particle minecraft:dragon_breath_trail ${px} ${py} ${pz}`
+            );
+        }
+
         player.playSound("mob.evocation_illager.cast_spell");
-        const hd = player.getHeadLocation();
-        const vd = player.getViewDirection();
-        player.dimension.runCommand(
-            `particle minecraft:crit_emitter ${hd.x + vd.x * 2} ${hd.y + vd.y * 2} ${hd.z + vd.z * 2}`
-        );
+        player.sendMessage("§5✦ §7You cast a magic bolt!");
     } catch (e) { console.warn(`[Wand] ${e}`); }
 }
 

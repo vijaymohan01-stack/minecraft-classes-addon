@@ -3,16 +3,29 @@
     "minecraft:item": {
         "description": {
             "identifier": "classes:dwarf_pickaxe_iron",
-            "menu_category": { "category": "none" }
+            "menu_category": {
+                "category": "none"
+            },
+            "is_hidden_in_commands": false
         },
         "components": {
             "minecraft:icon": "dwarf_pickaxe_iron",
-            "minecraft:display_name": { "value": "§6Dwarf Pickaxe §f[Iron]" },
+            "minecraft:display_name": {
+                "value": "\u00a76Dwarf Pickaxe \u00a7f[Iron]"
+            },
             "minecraft:max_stack_size": 1,
             "minecraft:hand_equipped": true,
-            "minecraft:damage": { "value": 4 },
-            "minecraft:durability": { "max_durability": 9999 },
-            "minecraft:tags": { "tags": ["minecraft:is_pickaxe"] }
+            "minecraft:damage": {
+                "value": 4
+            },
+            "minecraft:durability": {
+                "max_durability": 9999
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:is_pickaxe"
+                ]
+            }
         }
     }
 }

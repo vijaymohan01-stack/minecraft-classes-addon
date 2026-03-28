@@ -3,14 +3,22 @@
     "minecraft:item": {
         "description": {
             "identifier": "classes:teleport_wand",
-            "menu_category": { "category": "none" }
+            "menu_category": {
+                "category": "none"
+            },
+            "is_hidden_in_commands": false
         },
         "components": {
             "minecraft:icon": "teleport_wand",
-            "minecraft:display_name": { "value": "§5Teleport Wand §d[Ender]" },
+            "minecraft:display_name": {
+                "value": "\u00a75Teleport Wand \u00a7d[Ender]"
+            },
             "minecraft:max_stack_size": 1,
             "minecraft:hand_equipped": true,
-            "minecraft:cooldown": { "category": "classes_wand", "duration": 5.0 }
+            "minecraft:cooldown": {
+                "category": "classes_wand",
+                "duration": 5.0
+            }
         }
     }
 }
