@@ -549,19 +549,42 @@ function castFireWand(player) {
     try {
         const hd = player.getHeadLocation();
         const vd = player.getViewDirection();
-        const sp = { x: hd.x + vd.x * 2, y: hd.y + vd.y * 2, z: hd.z + vd.z * 2 };
-        player.dimension.runCommand(`summon small_fireball ${sp.x} ${sp.y} ${sp.z}`);
+        const speed = 1.8;
 
+        // Spawn position ahead of player
+        const spawnPos = {
+            x: hd.x + vd.x * 2,
+            y: hd.y + vd.y * 2,
+            z: hd.z + vd.z * 2
+        };
+
+        // Spawn a visible fireball with velocity
+        try {
+            const fireball = player.dimension.spawnEntity("minecraft:small_fireball", spawnPos);
+            fireball.applyImpulse({
+                x: vd.x * speed,
+                y: vd.y * speed,
+                z: vd.z * speed
+            });
+        } catch (e) {
+            // Fallback: fire particles
+            player.dimension.runCommand(
+                `particle minecraft:basic_flame_particle ${spawnPos.x} ${spawnPos.y} ${spawnPos.z}`
+            );
+        }
+
+        // Hitscan damage + set on fire
         const entities = player.getEntitiesFromViewDirection({ maxDistance: 60 });
         if (entities && entities.length > 0) {
             const target = entities[0].entity;
             if (target.id !== player.id) {
                 target.setOnFire(8, true);
                 target.applyDamage(4, { cause: "fire" });
+                player.sendMessage("§c🔥 §7Fireball hits!");
             }
         }
+
         player.playSound("mob.blaze.shoot");
-        player.sendMessage("§c🔥 §7Fireball!");
     } catch (e) { console.warn(`[Wand] ${e}`); }
 }
 
@@ -594,10 +617,10 @@ function castNovaWand(player) {
 // ══════════════════════════════════════════════════════════════
 
 function handleBroadswordHit(attacker, target, swordType) {
-    // Apply 12 damage (6 hearts) total — base hit + extra
-    try { target.applyDamage(11); } catch (e) {}
+    // Apply extra damage on top of base item damage (item does 6, script adds 4 = ~10 total)
+    try { target.applyDamage(4); } catch (e) {}
 
-    // Cleave — damage nearby enemies
+    // Cleave — damage nearby enemies (less than main target)
     try {
         const nearby = attacker.dimension.getEntities({
             location: target.location, maxDistance: 3,
@@ -605,7 +628,7 @@ function handleBroadswordHit(attacker, target, swordType) {
         });
         for (const ent of nearby) {
             if (ent.id === target.id) continue;
-            try { ent.applyDamage(8); } catch (e) {}
+            try { ent.applyDamage(3); } catch (e) {}
         }
 
         attacker.dimension.runCommand(
