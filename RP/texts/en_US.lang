@@ -18,7 +18,6 @@ item.classes:broadsword_knockback.name=Heavy Broadsword [Knockback]
 item.classes:broadsword_fire.name=Heavy Broadsword [Fire]
 item.classes:broadsword_dash.name=Dash Blade
 item.classes:broadsword_leech.name=Leech Blade
-item.classes:warrior_shield.name=Warrior Shield
 
 ## Pack
 pack.name=FFA Class System

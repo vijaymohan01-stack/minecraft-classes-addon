@@ -10,7 +10,7 @@
             "minecraft:display_name": { "value": "§6Dwarf Pickaxe §b[Diamond]" },
             "minecraft:max_stack_size": 1,
             "minecraft:hand_equipped": true,
-            "minecraft:damage": { "value": 7 },
+            "minecraft:damage": { "value": 6 },
             "minecraft:durability": { "max_durability": 9999 },
             "minecraft:tags": { "tags": ["minecraft:is_pickaxe"] }
         }

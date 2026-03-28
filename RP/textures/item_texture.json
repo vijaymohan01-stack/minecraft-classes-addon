@@ -45,9 +45,6 @@
         },
         "broadsword_leech": {
             "textures": "textures/items/broadsword_leech"
-        },
-        "warrior_shield": {
-            "textures": "textures/items/warrior_shield"
         }
     }
 }

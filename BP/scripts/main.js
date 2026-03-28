@@ -1,5 +1,5 @@
 // ============================================================
-// FFA Class System — Main Entry Point (v2.1)
+// FFA Class System — Main Entry Point (v3)
 // Minecraft Bedrock Edition Behavior Pack Script
 // ============================================================
 import { world, system, ItemStack } from "@minecraft/server";
@@ -46,15 +46,14 @@ const CLASS_INFO = {
             "§7Role: §eFrontline / Melee Brawler",
             "",
             "§fPassive: §aResistance I §7+ §c+4 Extra Hearts",
-            "§fWeapons: §cHeavy Broadsword §7(6♥, cleave) + §cWarrior Shield §7(∞)",
-            "§fShield: §7Use to activate §bDamage Absorb §7(5s, 10s CD)",
+            "§fWeapon: §cHeavy Broadsword §7(6♥, cleave)",
             "§fBlade Upgrades:",
             "  §f• Knockback §7(Iron Block ×8)",
             "  §6• Fire Aspect §7(Magma Cream ×8)",
             "  §a• Dash Blade §7(Phantom Membrane ×8)",
             "  §4• Leech Blade §7(Wither Skull ×1)",
             "",
-            "§7Only Warriors can wield Broadswords & Shields."
+            "§7Only Warriors can wield Broadswords."
         ].join("\n")
     }
 };
@@ -75,8 +74,7 @@ const ITEM_CLASS_MAP = {
     "classes:broadsword_knockback": "warrior",
     "classes:broadsword_fire": "warrior",
     "classes:broadsword_dash": "warrior",
-    "classes:broadsword_leech": "warrior",
-    "classes:warrior_shield": "warrior"
+    "classes:broadsword_leech": "warrior"
 };
 
 // Class tool IDs for death/respawn preservation
@@ -93,7 +91,7 @@ const CLASS_TOOL_IDS = {
     warrior: [
         "classes:heavy_broadsword", "classes:broadsword_knockback",
         "classes:broadsword_fire", "classes:broadsword_dash",
-        "classes:broadsword_leech", "classes:warrior_shield"
+        "classes:broadsword_leech"
     ]
 };
 
@@ -101,8 +99,7 @@ const CLASS_STARTER_GEAR = {
     dwarf: [{ item: "classes:dwarf_pickaxe_base", slot: 0 }],
     wizard: [{ item: "classes:basic_wand", slot: 0 }],
     warrior: [
-        { item: "classes:heavy_broadsword", slot: 0 },
-        { item: "classes:warrior_shield", slot: 1 }
+        { item: "classes:heavy_broadsword", slot: 0 }
     ]
 };
 
@@ -562,10 +559,8 @@ function castNovaWand(player) {
 }
 
 // ══════════════════════════════════════════════════════════════
-// WARRIOR MECHANICS — Cleave + Upgrades + Shield
+// WARRIOR MECHANICS — Cleave + Upgrades
 // ══════════════════════════════════════════════════════════════
-
-const shieldCooldowns = new Map();
 
 function handleBroadswordHit(attacker, target, swordType) {
     // Apply 12 damage (6 hearts) total — base hit + extra
@@ -606,36 +601,6 @@ function handleBroadswordHit(attacker, target, swordType) {
         case "leech":
             try { attacker.runCommandAsync("effect @s instant_health 1 0 true"); } catch (e) {}
             break;
-    }
-}
-
-function activateWarriorShield(player) {
-    const now = system.currentTick;
-    const lastUse = shieldCooldowns.get(player.name) || 0;
-    const cooldownTicks = 200; // 10 seconds
-
-    if ((now - lastUse) < cooldownTicks) {
-        const remain = ((cooldownTicks - (now - lastUse)) / 20).toFixed(1);
-        player.sendMessage(`§c[Shield CD] §7Wait §e${remain}s`);
-        return;
-    }
-
-    shieldCooldowns.set(player.name, now);
-
-    try {
-        // Grant Resistance II + Absorption for 5 seconds (100 ticks)
-        player.addEffect("resistance", 100, { amplifier: 1, showParticles: true });
-        player.addEffect("absorption", 100, { amplifier: 1, showParticles: true });
-        player.playSound("item.shield.block");
-        player.sendMessage("§b🛡 §7Shield activated! §aResistance II §7+ §eAbsorption §7for §b5s§7!");
-
-        // Particle effect
-        const pos = player.location;
-        player.dimension.runCommand(
-            `particle minecraft:totem_particle ${pos.x} ${pos.y + 1} ${pos.z}`
-        );
-    } catch (e) {
-        console.warn(`[Shield] ${e}`);
     }
 }
 
@@ -681,7 +646,7 @@ function saveClassToolOnDeath(player) {
 // EVENT SUBSCRIPTIONS
 // ══════════════════════════════════════════════════════════════
 
-console.warn("[ClassSystem] Initializing FFA Class System v2.1...");
+console.warn("[ClassSystem] Initializing FFA Class System v3...");
 
 // Player spawn (join + respawn)
 world.afterEvents.playerSpawn.subscribe((event) => {
@@ -747,23 +712,13 @@ world.afterEvents.playerBreakBlock.subscribe((event) => {
     } catch (e) {}
 });
 
-// Item use — Wizard wands + Warrior shield
+// Item use — Wizard wands
 world.afterEvents.itemUse.subscribe((event) => {
     const player = event.source;
     const item = event.itemStack;
     if (!item || !player) return;
 
     const playerClass = player.getDynamicProperty("playerClass");
-
-    // Warrior shield activation
-    if (item.typeId === "classes:warrior_shield") {
-        if (playerClass !== "warrior") {
-            player.sendMessage("§c[Class Lock] §7Only Warriors can use shields!");
-            return;
-        }
-        activateWarriorShield(player);
-        return;
-    }
 
     // Wizard wand spells
     if (playerClass !== "wizard") return;
@@ -798,4 +753,4 @@ world.afterEvents.entityHitEntity.subscribe((event) => {
     } catch (e) {}
 });
 
-console.warn("[ClassSystem] All systems loaded v2.1!");
+console.warn("[ClassSystem] All systems loaded v3!");
