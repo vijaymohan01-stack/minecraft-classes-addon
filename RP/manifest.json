@@ -1,8 +1,8 @@
 {
     "format_version": 2,
     "header": {
-        "name": "§b⚔ FFA Classes v3 Resources ⚔",
-        "description": "Textures and UI for the FFA Class System v3",
+        "name": "§b⚔ FFA Class Wars Resources ⚔",
+        "description": "Textures and UI for FFA Class Wars",
         "uuid": "a3b4c5d6-e7f8-9012-cdef-cccccccccccc",
         "version": [3, 0, 0],
         "min_engine_version": [1, 21, 0]
