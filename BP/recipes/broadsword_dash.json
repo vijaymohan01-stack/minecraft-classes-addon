@@ -1,0 +1,13 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": { "identifier": "classes:broadsword_dash_recipe" },
+        "tags": ["crafting_table"],
+        "pattern": ["PPP", "PSP", "PPP"],
+        "key": {
+            "P": { "item": "minecraft:phantom_membrane" },
+            "S": { "item": "classes:heavy_broadsword" }
+        },
+        "result": { "item": "classes:broadsword_dash", "count": 1 }
+    }
+}

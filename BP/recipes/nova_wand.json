@@ -1,0 +1,13 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": { "identifier": "classes:nova_wand_recipe" },
+        "tags": ["crafting_table"],
+        "pattern": ["GGG", "GWG", "GGG"],
+        "key": {
+            "G": { "item": "minecraft:ghast_tear" },
+            "W": { "item": "classes:basic_wand" }
+        },
+        "result": { "item": "classes:nova_wand", "count": 1 }
+    }
+}

@@ -1,0 +1,25 @@
+## Items - Dwarf
+item.classes:dwarf_pickaxe_base.name=Dwarf Pickaxe
+item.classes:dwarf_pickaxe_iron.name=Dwarf Pickaxe [Iron]
+item.classes:dwarf_pickaxe_gold.name=Dwarf Pickaxe [Gold]
+item.classes:dwarf_pickaxe_diamond.name=Dwarf Pickaxe [Diamond]
+item.classes:dwarf_pickaxe_netherite.name=Dwarf Pickaxe [Netherite]
+
+## Items - Wizard
+item.classes:basic_wand.name=Basic Wand
+item.classes:teleport_wand.name=Teleport Wand
+item.classes:storm_wand.name=Storm Wand
+item.classes:fire_wand.name=Fire Wand
+item.classes:nova_wand.name=Nova Wand
+
+## Items - Warrior
+item.classes:heavy_broadsword.name=Heavy Broadsword
+item.classes:broadsword_knockback.name=Heavy Broadsword [Knockback]
+item.classes:broadsword_fire.name=Heavy Broadsword [Fire]
+item.classes:broadsword_dash.name=Dash Blade
+item.classes:broadsword_leech.name=Leech Blade
+item.classes:warrior_shield.name=Warrior Shield
+
+## Pack
+pack.name=FFA Class System
+pack.description=3-Class FFA: Dwarf, Wizard, Warrior

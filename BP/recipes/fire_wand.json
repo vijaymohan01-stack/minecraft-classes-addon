@@ -1,0 +1,13 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": { "identifier": "classes:fire_wand_recipe" },
+        "tags": ["crafting_table"],
+        "pattern": ["BBB", "BWB", "BBB"],
+        "key": {
+            "B": { "item": "minecraft:blaze_powder" },
+            "W": { "item": "classes:basic_wand" }
+        },
+        "result": { "item": "classes:fire_wand", "count": 1 }
+    }
+}

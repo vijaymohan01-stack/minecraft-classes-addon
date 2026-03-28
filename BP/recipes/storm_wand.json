@@ -1,0 +1,13 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": { "identifier": "classes:storm_wand_recipe" },
+        "tags": ["crafting_table"],
+        "pattern": ["AAA", "AWA", "AAA"],
+        "key": {
+            "A": { "item": "minecraft:amethyst_shard" },
+            "W": { "item": "classes:basic_wand" }
+        },
+        "result": { "item": "classes:storm_wand", "count": 1 }
+    }
+}

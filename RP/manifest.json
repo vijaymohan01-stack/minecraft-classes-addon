@@ -1,0 +1,17 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "§b⚔ FFA Classes v2 Resources ⚔",
+        "description": "Textures and UI for the FFA Class System",
+        "uuid": "f4a5b6c7-d8e9-0123-defa-444444444444",
+        "version": [2, 0, 0],
+        "min_engine_version": [1, 21, 0]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "f5a6b7c8-d9e0-1234-efab-555555555555",
+            "version": [2, 0, 0]
+        }
+    ]
+}

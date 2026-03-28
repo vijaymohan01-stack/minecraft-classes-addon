@@ -1,0 +1,13 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": { "identifier": "classes:broadsword_leech_recipe" },
+        "tags": ["crafting_table"],
+        "pattern": [" W ", " S ", "   "],
+        "key": {
+            "W": { "item": "minecraft:skull", "data": 1 },
+            "S": { "item": "classes:heavy_broadsword" }
+        },
+        "result": { "item": "classes:broadsword_leech", "count": 1 }
+    }
+}

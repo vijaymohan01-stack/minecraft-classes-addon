@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "description": {
+            "identifier": "classes:heavy_broadsword",
+            "menu_category": { "category": "none" }
+        },
+        "components": {
+            "minecraft:icon": "heavy_broadsword",
+            "minecraft:display_name": { "value": "§cHeavy Broadsword" },
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:damage": { "value": 10 },
+            "minecraft:durability": { "max_durability": 9999 },
+            "minecraft:tags": { "tags": ["minecraft:is_sword"] }
+        }
+    }
+}

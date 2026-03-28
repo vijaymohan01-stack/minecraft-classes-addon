@@ -1,0 +1,13 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": { "identifier": "classes:broadsword_fire_recipe" },
+        "tags": ["crafting_table"],
+        "pattern": ["MMM", "MSM", "MMM"],
+        "key": {
+            "M": { "item": "minecraft:magma_cream" },
+            "S": { "item": "classes:heavy_broadsword" }
+        },
+        "result": { "item": "classes:broadsword_fire", "count": 1 }
+    }
+}

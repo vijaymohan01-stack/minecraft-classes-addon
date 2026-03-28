@@ -1,0 +1,16 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "description": {
+            "identifier": "classes:teleport_wand",
+            "menu_category": { "category": "none" }
+        },
+        "components": {
+            "minecraft:icon": "teleport_wand",
+            "minecraft:display_name": { "value": "§5Teleport Wand §d[Ender]" },
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:cooldown": { "category": "classes_wand", "duration": 5.0 }
+        }
+    }
+}

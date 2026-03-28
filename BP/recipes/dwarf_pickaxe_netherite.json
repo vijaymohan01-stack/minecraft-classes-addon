@@ -1,0 +1,13 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": { "identifier": "classes:dwarf_pickaxe_netherite_recipe" },
+        "tags": ["crafting_table"],
+        "pattern": ["NNN", "NPN", "NNN"],
+        "key": {
+            "N": { "item": "minecraft:netherite_ingot" },
+            "P": { "item": "classes:dwarf_pickaxe_diamond" }
+        },
+        "result": { "item": "classes:dwarf_pickaxe_netherite", "count": 1 }
+    }
+}

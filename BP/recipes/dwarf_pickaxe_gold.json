@@ -1,0 +1,13 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": { "identifier": "classes:dwarf_pickaxe_gold_recipe" },
+        "tags": ["crafting_table"],
+        "pattern": ["GGG", "GPG", "GGG"],
+        "key": {
+            "G": { "item": "minecraft:gold_ingot" },
+            "P": { "item": "classes:dwarf_pickaxe_iron" }
+        },
+        "result": { "item": "classes:dwarf_pickaxe_gold", "count": 1 }
+    }
+}

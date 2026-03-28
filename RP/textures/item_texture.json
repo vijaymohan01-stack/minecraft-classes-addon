@@ -1,0 +1,53 @@
+{
+    "resource_pack_name": "FFA Class System",
+    "texture_data": {
+        "dwarf_pickaxe_base": {
+            "textures": "textures/items/dwarf_pickaxe_base"
+        },
+        "dwarf_pickaxe_iron": {
+            "textures": "textures/items/dwarf_pickaxe_iron"
+        },
+        "dwarf_pickaxe_gold": {
+            "textures": "textures/items/dwarf_pickaxe_gold"
+        },
+        "dwarf_pickaxe_diamond": {
+            "textures": "textures/items/dwarf_pickaxe_diamond"
+        },
+        "dwarf_pickaxe_netherite": {
+            "textures": "textures/items/dwarf_pickaxe_netherite"
+        },
+        "basic_wand": {
+            "textures": "textures/items/basic_wand"
+        },
+        "teleport_wand": {
+            "textures": "textures/items/teleport_wand"
+        },
+        "storm_wand": {
+            "textures": "textures/items/storm_wand"
+        },
+        "fire_wand": {
+            "textures": "textures/items/fire_wand"
+        },
+        "nova_wand": {
+            "textures": "textures/items/nova_wand"
+        },
+        "heavy_broadsword": {
+            "textures": "textures/items/heavy_broadsword"
+        },
+        "broadsword_knockback": {
+            "textures": "textures/items/broadsword_knockback"
+        },
+        "broadsword_fire": {
+            "textures": "textures/items/broadsword_fire"
+        },
+        "broadsword_dash": {
+            "textures": "textures/items/broadsword_dash"
+        },
+        "broadsword_leech": {
+            "textures": "textures/items/broadsword_leech"
+        },
+        "warrior_shield": {
+            "textures": "textures/items/warrior_shield"
+        }
+    }
+}

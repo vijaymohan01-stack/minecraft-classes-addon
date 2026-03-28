@@ -1,0 +1,13 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": { "identifier": "classes:dwarf_pickaxe_diamond_recipe" },
+        "tags": ["crafting_table"],
+        "pattern": ["DDD", "DPD", "DDD"],
+        "key": {
+            "D": { "item": "minecraft:diamond" },
+            "P": { "item": "classes:dwarf_pickaxe_gold" }
+        },
+        "result": { "item": "classes:dwarf_pickaxe_diamond", "count": 1 }
+    }
+}
