@@ -4,7 +4,7 @@
         "description": {
             "identifier": "classes:teleport_wand",
             "menu_category": {
-                "category": "none"
+                "category": "equipment"
             },
             "is_hidden_in_commands": false
         },

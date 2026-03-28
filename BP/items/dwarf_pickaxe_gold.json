@@ -4,7 +4,8 @@
         "description": {
             "identifier": "classes:dwarf_pickaxe_gold",
             "menu_category": {
-                "category": "none"
+                "category": "equipment",
+                "group": "itemGroup.name.pickaxe"
             },
             "is_hidden_in_commands": false
         },

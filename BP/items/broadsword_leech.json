@@ -4,7 +4,8 @@
         "description": {
             "identifier": "classes:broadsword_leech",
             "menu_category": {
-                "category": "none"
+                "category": "equipment",
+                "group": "itemGroup.name.sword"
             },
             "is_hidden_in_commands": false
         },

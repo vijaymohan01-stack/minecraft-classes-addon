@@ -466,19 +466,29 @@ function castBasicWand(player) {
     try {
         const hd = player.getHeadLocation();
         const vd = player.getViewDirection();
+        const speed = 2.0;
 
-        // Spawn a visible projectile (arrow) in the look direction
-        const spawnX = hd.x + vd.x * 1.5;
-        const spawnY = hd.y + vd.y * 1.5;
-        const spawnZ = hd.z + vd.z * 1.5;
+        // Spawn position slightly ahead of player
+        const spawnPos = {
+            x: hd.x + vd.x * 2,
+            y: hd.y + vd.y * 2,
+            z: hd.z + vd.z * 2
+        };
 
-        // Shoot an arrow as the visible projectile
-        player.runCommandAsync(
-            `summon arrow ${spawnX} ${spawnY} ${spawnZ}`
-        );
+        // Spawn a real projectile entity and give it velocity
+        try {
+            const projectile = player.dimension.spawnEntity("minecraft:arrow", spawnPos);
+            projectile.applyImpulse({
+                x: vd.x * speed,
+                y: vd.y * speed,
+                z: vd.z * speed
+            });
+        } catch (e) {
+            // Fallback: just use particles
+            console.warn(`[Wand] Projectile spawn failed: ${e}`);
+        }
 
-        // Apply velocity-like behavior by teleporting arrow forward in ticks
-        // and do damage via hitscan as backup
+        // Hitscan damage as backup (instant hit)
         const entities = player.getEntitiesFromViewDirection({ maxDistance: 50 });
         if (entities && entities.length > 0) {
             const target = entities[0].entity;
@@ -488,7 +498,7 @@ function castBasicWand(player) {
             }
         }
 
-        // Particle trail
+        // Particle trail along the path
         for (let i = 1; i <= 5; i++) {
             const px = hd.x + vd.x * i * 3;
             const py = hd.y + vd.y * i * 3;
@@ -499,7 +509,6 @@ function castBasicWand(player) {
         }
 
         player.playSound("mob.evocation_illager.cast_spell");
-        player.sendMessage("§5✦ §7You cast a magic bolt!");
     } catch (e) { console.warn(`[Wand] ${e}`); }
 }
 
